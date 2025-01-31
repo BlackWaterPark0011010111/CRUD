@@ -1,5 +1,4 @@
 import notes
-from notes import *
 import logging
 
 
