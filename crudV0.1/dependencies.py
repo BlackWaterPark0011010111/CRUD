@@ -1,21 +1,24 @@
-from assimilator.core.database import Repository, UnitOfWork
-from assimilator.internal.database import InternalRepository,\
-    InternalUnitOfWork
+from assimilator.internal.database import InternalRepository, UnitOfWork, InternalUnitOfWork
+from sqlalchemy.orm import sessionmaker
+from assimilator.core.services import CRUDService
+from dependencies import get_uow
 
-from models import User
+ 
+from database import engine, User
+from schema import UserSchema, Userschema 
 
+DatabaseSession = sessionmaker(engine)
 
-database = {}
-
-
-def create_repository() -> Repository:
+def get_repository() -> InternalRepository:
     return InternalRepository(
-        session=database,
-        model=User,
+        session=DatabaseSession(),
+        model=UserSchema
     )
 
 
-def create_uow() -> UnitOfWork:
-    return InternalUnitOfWork(
-        repository=create_repository(),
-    )
+def get_uow() -> UnitOfWork:
+    return InternalUnitOfWork(repository=get_repository())
+
+
+def get_crud() -> CRUDService:
+    return CRUDService(uow=get_uow())
