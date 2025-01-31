@@ -3,6 +3,8 @@ from fastapi import FastAPI, Depends
 from dependencies import get_crud, create_repository, create_uow
 from schema import UserSchema
 
+
+
 app = FastAPI()
 
 @app.get("/users")

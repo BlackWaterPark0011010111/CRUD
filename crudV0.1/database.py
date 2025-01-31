@@ -1,4 +1,4 @@
-from sqlalchemy import creae_engine, Table, Column, String, Integer, create_engine
+from sqlalchemy import  Table, Column, String, Integer, create_engine
 from sqlalchemy.orm import registry
 
 
@@ -11,7 +11,6 @@ users = Table(
     mapper_registry.metadata.
 
     Column("id", Integer(), primary_key=True),
-    
     Column("username", String(), unique=True),
     Column("balance", float(), default= 0),
 )
