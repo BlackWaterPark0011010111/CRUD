@@ -27,8 +27,10 @@ def main():
 
         elif choice == '2':
             all_notes = notes.read_notes()
+            
             if all_notes:
                 logger.info("\n The list of all ure notes")
+
                 for note in all_notes:
                     logger.info(f"\n ID: {note[0]} \n Body: {note[2]}")
         elif choice =='3':
