@@ -13,6 +13,7 @@ def menu():
     logger.info("5📌. Exit ")
 
 
+
 def main():
     notes.create_table()
     
