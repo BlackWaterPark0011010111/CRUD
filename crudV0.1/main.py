@@ -20,7 +20,7 @@ async def create_user(
     user: UserSchema, crud: CRUDService = Depends(get_crud)
 ):
     return crud.create(user.dict())
-
+ 
 @app.delete("/users/{id}")
 async def delete_user(id: int, crud: CRUDService = Depends(get_crud)):
     return crud.list()
