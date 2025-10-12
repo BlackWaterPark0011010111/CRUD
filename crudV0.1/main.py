@@ -5,7 +5,7 @@ from schema import UserSchema
 
 
 
-app = FastAPI()
+app = FastAPI() 
 
 @app.get("/users")
 async def list_users(crud: CRUDService = Depends(get_crud)):
