@@ -25,7 +25,7 @@ async def create_user(
 async def delete_user(id: int, crud: CRUDService = Depends(get_crud)):
     return crud.list()
 
-
+ 
 @app.put("/users/{id}")
 async def update_user(id: int, user_data: UserSchema, crud: CRUDService =  Depends(get_crud),):
     return crud.update(id=id, update_data= user_data.dict())
