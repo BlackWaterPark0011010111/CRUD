@@ -10,7 +10,7 @@ app = FastAPI()
 @app.get("/users")
 async def list_users(crud: CRUDService = Depends(get_crud)):
     return crud.list()
-
+ 
 @app.get("/users/{id}")
 async def get_user(id: int, crud: CRUDService = Depends(get_crud)):
     return crud.get(id=id)
